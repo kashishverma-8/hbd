@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;600&family=Satisfy&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --rose: #ff69b4; --deep-pink: #c71585; --gold: #ffd700; 
+            --soft-gold: #ffecb3; --heart-red: #ff1744;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body, html {
+            height: 100%; 
+            background: radial-gradient(ellipse at center, #1a0033 0%, #000 70%);
+            font-family: 'Poppins', sans-serif; overflow: hidden; position: relative;
+        }
+        .hearts { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+        .heart { position: absolute; width: 40px; height: 36px; animation: floatHearts 8s infinite linear; }
+        .heart:before, .heart:after {
+            content: ''; width: 20px; height: 30px; position: absolute; left: 20px; top: 0;
+            transform: rotate(-45deg); background: var(--heart-red); border-radius: 20px 20px 0 0; transform-origin: 0 100%;
+        }
+        .heart:after { left: 0; transform: rotate(45deg); transform-origin: 100% 100%; }
+        @keyframes floatHearts { 0% { transform: translateY(100vh) rotate(0deg) scale(0); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(-50px) rotate(720deg) scale(1); opacity: 0; } }
+        .petal { position: absolute; width: 20px; height: 20px; background: radial-gradient(circle, #ffc0cb, #ff69b4); clip-path: polygon(50% 0%, 0% 100%, 100% 100%); animation: floatPetals 12s infinite linear; }
+        @keyframes floatPetals { 0% { transform: translateY(100vh) rotate(0deg); opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { transform: translateY(-100px) rotate(1080deg); opacity: 0; } }
+        
+        #welcome-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(199,21,133,0.95), rgba(255,105,180,0.9)), url('https://images.unsplash.com/photo-1518627012144-5713c2e6feb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 1000; transition: opacity 1.5s ease-out; }
+        .welcome-title { font-family: 'Dancing Script', cursive; font-size: 4.5rem; color: #fff; text-shadow: 0 0 40px var(--rose); margin-bottom: 30px; animation: romanticGlow 3s ease-in-out infinite alternate; }
+        .welcome-btn { padding: 25px 70px; font-size: 2.2rem; font-family: 'Satisfy', cursive; background: linear-gradient(45deg, var(--rose), var(--deep-pink)); color: white; border: none; border-radius: 60px; cursor: pointer; box-shadow: 0 15px 40px rgba(255,105,180,0.6); animation: lovePulse 2s infinite; transition: all 0.3s ease; }
+        .welcome-btn:hover { transform: scale(1.1) translateY(-5px); box-shadow: 0 25px 60px rgba(255,105,180,0.8); }
+        @keyframes romanticGlow { from { text-shadow: 0 0 30px var(--rose), 0 0 50px var(--rose); } to { text-shadow: 0 0 50px var(--rose), 0 0 80px var(--rose), 0 0 100px var(--soft-gold); } }
+        @keyframes lovePulse { 0% { transform: scale(1); } 50% { transform: scale(1.08); box-shadow: 0 20px 60px rgba(255,105,180,0.7); } 100% { transform: scale(1); } }
+        
+        #main-content { opacity: 0; transition: opacity 2s; height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .love-card { 
+            background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(30px); 
+            border-radius: 40px; padding: 50px; text-align: center; width: 500px; max-height: 90vh; overflow-y: auto;
+            color: white; border: 2px solid rgba(255,255,255,0.3); box-shadow: 0 30px 80px rgba(0,0,0,0.6); 
+            position: relative; animation: cardFloat 6s ease-in-out infinite; 
+        }
+        .love-card::-webkit-scrollbar { width: 8px; }
+        .love-card::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); border-radius: 10px; }
+        .love-card::-webkit-scrollbar-thumb { background: var(--rose); border-radius: 10px; }
+        .love-card::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent, rgba(255,105,180,0.1), transparent); animation: shimmer 3s infinite; }
+        @keyframes shimmer { 0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); } 100% { transform: translateX(100%) translateY(100%) rotate(45deg); } }
+        @keyframes cardFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+        
+        .photo-container { display: flex; gap: 25px; justify-content: center; margin-bottom: 30px; }
+        .photo { 
+            width: 140px; height: 140px; border-radius: 50%; 
+            border: 6px solid rgba(255,255,255,0.8); object-fit: cover; 
+            transition: all 0.5s ease; box-shadow: 0 0 40px rgba(255,105,180,0.8);
+        }
+        .photo:hover { transform: scale(1.1) rotate(5deg); box-shadow: 0 0 60px var(--rose); }
+        .photo.fallback {
+            background: linear-gradient(45deg, var(--rose), var(--gold));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 3rem; color: white; font-weight: bold;
+        }
+        
+        .love-title { font-family: 'Dancing Script', cursive; font-size: 3.8rem; background: linear-gradient(45deg, var(--soft-gold), var(--gold), var(--rose)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 20px 0; text-shadow: 0 0 30px var(--gold); animation: titleBeat 2s infinite; }
+        @keyframes titleBeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        
+        .love-letter { 
+            font-size: 1.3rem; line-height: 1.7; margin: 25px 0; opacity: 0.95; font-weight: 300;
+            font-family: 'Dancing Script', cursive; background: rgba(255,255,255,0.1); 
+            padding: 25px; border-radius: 20px; border-left: 5px solid var(--rose);
+            animation: letterReveal 2s ease-out 0.5s forwards;
+        }
+        @keyframes letterReveal { from { opacity: 0; transform: translateY(20px); } to { opacity: 0.95; transform: translateY(0); } }
+        
+        .celebrate-btn { padding: 18px 45px; font-size: 1.5rem; font-family: 'Satisfy', cursive; background: linear-gradient(45deg, var(--heart-red), var(--rose)); color: white; border: none; border-radius: 50px; cursor: pointer; box-shadow: 0 15px 40px rgba(255,23,68,0.6); transition: all 0.4s ease; margin-top: 20px; }
+        .celebrate-btn:hover { transform: translateY(-8px) scale(1.05); box-shadow: 0 25px 60px rgba(255,23,68,0.8); }
+        .candlelight { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 20%, rgba(255,193,7,0.3) 0%, transparent 70%); animation: flicker 4s infinite; z-index: 0; pointer-events: none; }
+        @keyframes flicker { 0%, 100% { opacity: 0.7; transform: scale(1); } 50% { opacity: 1; transform: scale(1.05); } }
+    </style>
+</head>
+<body>
+    <div class="candlelight"></div>
+    <div class="hearts" id="hearts"></div>
+    
+    <div id="welcome-screen">
+        <h1 class="welcome-title">💖 A Love Surprise 💖</h1>
+        <button class="welcome-btn" onclick="enterLoveParty()">Enter My Heart...</button>
+    </div>
+
+    <audio id="romanticMusic" loop preload="auto">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="main-content">
+        <div class="love-card">
+            <div class="photo-container">
+                <!-- ✅ YOUR EXACT LOCAL FILES with fallback -->
+                <img src="trashed-1768827611-Snapchat-991977022.jpg (2).jpg" 
+                     onerror="this.classList.add('fallback')" 
+                     alt="My Love 1" class="photo" loading="eager">
+                <img src="trashed-1768827611-Snapchat-2080139167.jpg.jpg" 
+                     onerror="this.classList.add('fallback')" 
+                     alt="My Love 2" class="photo" loading="eager">
+            </div>
+            <h1 class="love-title">Happy Birthday Mera Bachha 💕</h1>
+            
+            <!-- ✨ YOUR PERFECT LOVE LETTER ✨ -->
+            <div class="love-letter">
+                Happy Birthday to my Bachha 💖<br><br>
+                I honestly don't know what I'd do without you. You've been my <strong>constant</strong>—through laughter, chaos, late-night talks, and moments when words weren't even needed.<br><br>
+                Thank you for <em>understanding me like no one else</em>, for standing by me at my lowest, and for celebrating my smallest wins like they were huge.<br><br>
+                I'm so grateful for every memory we've made and every one that's still to come. May this year give you all the <strong>happiness, love, and success</strong> you deserve.<br><br>
+                <strong>Always here, always us 🫶🎂✨</strong>
+            </div>
+            
+            <button class="celebrate-btn" onclick="heartExplosion()">💖 Make It Rain Love 💖</button>
+        </div>
+    </div>
+
+    <script>
+        function createRomanticEffects() {
+            const heartsContainer = document.getElementById('hearts');
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart'; heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 5 + 6) + 's';
+                const width = Math.random() * 20 + 30; heart.style.width = width + 'px';
+                heartsContainer.appendChild(heart); setTimeout(() => heart.remove(), 9000);
+            }, 800);
+            setInterval(() => {
+                const petal = document.createElement('div');
+                petal.className = 'petal'; petal.style.left = Math.random() * 100 + 'vw';
+                petal.style.animationDuration = (Math.random() * 8 + 10) + 's';
+                heartsContainer.appendChild(petal); setTimeout(() => petal.remove(), 14000);
+            }, 1200);
+        }
+        function enterLoveParty() {
+            document.getElementById('welcome-screen').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('welcome-screen').style.display = 'none';
+                document.getElementById('main-content').style.opacity = '1';
+            }, 1500);
+            const music = document.getElementById('romanticMusic');
+            music.volume = 0.3; music.play().catch(() => {});
+            createRomanticEffects(); heartExplosion();
+        }
+        function heartExplosion() {
+            for (let i = 0; i < 200; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart'; heart.style.position = 'fixed';
+                heart.style.left = '50%'; heart.style.top = '50%';
+                const size = Math.random() * 25 + 15; heart.style.width = size + 'px';
+                heart.style.animation = `floatHearts ${Math.random() * 2 + 1.5}s linear forwards`;
+                heart.style.animationDelay = Math.random() * 0.3 + 's';
+                document.body.appendChild(heart); setTimeout(() => heart.remove(), 4000);
+            }
+        }
+        setTimeout(createRomanticEffects, 3000);
+    </script>
+</body>
+</html>
