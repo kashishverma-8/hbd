@@ -94,7 +94,6 @@
     <div id="main-content">
         <div class="love-card">
             <div class="photo-container">
-                <!-- ✅ YOUR EXACT LOCAL FILES with fallback -->
                 <img src="trashed-1768827611-Snapchat-991977022.jpg (2).jpg" 
                      onerror="this.classList.add('fallback')" 
                      alt="My Love 1" class="photo" loading="eager">
@@ -104,7 +103,6 @@
             </div>
             <h1 class="love-title">Happy Birthday Mera Bachha 💕</h1>
             
-            <!-- ✨ YOUR PERFECT LOVE LETTER ✨ -->
             <div class="love-letter">
                 Happy Birthday to my Bachha 💖<br><br>
                 I honestly don't know what I'd do without you. You've been my <strong>constant</strong>—through laughter, chaos, late-night talks, and moments when words weren't even needed.<br><br>
@@ -113,7 +111,8 @@
                 <strong>Always here, always us 🫶🎂✨</strong>
             </div>
             
-            <button class="celebrate-btn" onclick="heartExplosion()">💖 Make It Rain Love 💖</button>
+            <!-- 🔥 NEW BUTTON - OPENS MEMORIES PAGE -->
+            <button class="celebrate-btn" onclick="openMemoriesPage()">💕 Open Our Memories... 💕</button>
         </div>
     </div>
 
@@ -142,7 +141,7 @@
             }, 1500);
             const music = document.getElementById('romanticMusic');
             music.volume = 0.3; music.play().catch(() => {});
-            createRomanticEffects(); heartExplosion();
+            createRomanticEffects(); 
         }
         function heartExplosion() {
             for (let i = 0; i < 200; i++) {
@@ -155,6 +154,12 @@
                 document.body.appendChild(heart); setTimeout(() => heart.remove(), 4000);
             }
         }
+        
+        <!-- 🔥 NEW FUNCTION - OPENS MEMORIES PAGE IN NEW WINDOW -->
+        function openMemoriesPage() {
+            window.open('memories.html', '_blank', 'width=1200,height=800,scrollbars=yes');
+        }
+        
         setTimeout(createRomanticEffects, 3000);
     </script>
 </body>
