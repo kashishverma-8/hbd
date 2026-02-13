@@ -1,176 +1,276 @@
-<!-- NEW PAGE (memories.html) - 10+ STUNNING PHOTOS -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Our Memories 💖</title>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Poppins', sans-serif; background: linear-gradient(-45deg, #ff6b9d, #c44569, #ff8e8e, #f9844a);
-      background-size: 400% 400%; animation: gradientShift 8s ease infinite;
-      min-height: 100vh; overflow-x: hidden;
-    }
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    
-    .header {
-      text-align: center; padding: 40px 20px; color: white;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    }
-    .header h1 { 
-      font-family: 'Dancing Script', cursive; font-size: 4rem; margin-bottom: 10px;
-      animation: titleGlow 2s ease-in-out infinite alternate;
-    }
-    .header p { font-size: 1.4rem; opacity: 0.95; }
-    @keyframes titleGlow {
-      from { text-shadow: 0 0 20px #fff, 0 0 30px #ff6b9d; }
-      to { text-shadow: 0 0 30px #fff, 0 0 50px #ff6b9d, 0 0 70px #c44569; }
-    }
-    
-    .photo-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px; padding: 40px 20px; max-width: 1400px; margin: 0 auto;
-    }
-    
-    .photo-card {
-      position: relative; border-radius: 25px; overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4); transition: all 0.5s ease;
-      animation: cardSlide 0.8s ease forwards;
-    }
-    .photo-card:hover {
-      transform: translateY(-15px) scale(1.03); box-shadow: 0 35px 80px rgba(0,0,0,0.6);
-    }
-    .photo-card img {
-      width: 100%; height: 350px; object-fit: cover; transition: transform 0.6s ease;
-    }
-    .photo-card:hover img { transform: scale(1.1); }
-    
-    .photo-overlay {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,0.85)); color: white;
-      padding: 25px; transform: translateY(100%); transition: transform 0.4s ease;
-    }
-    .photo-card:hover .photo-overlay { transform: translateY(0); }
-    
-    /* STAGGERED ANIMATIONS */
-    .photo-card:nth-child(1) { animation-delay: 0.1s; }
-    .photo-card:nth-child(2) { animation-delay: 0.2s; }
-    .photo-card:nth-child(3) { animation-delay: 0.3s; }
-    .photo-card:nth-child(4) { animation-delay: 0.4s; }
-    .photo-card:nth-child(5) { animation-delay: 0.5s; }
-    .photo-card:nth-child(6) { animation-delay: 0.6s; }
-    .photo-card:nth-child(7) { animation-delay: 0.7s; }
-    .photo-card:nth-child(8) { animation-delay: 0.8s; }
-    .photo-card:nth-child(9) { animation-delay: 0.9s; }
-    .photo-card:nth-child(10) { animation-delay: 1s; }
-    
-    @keyframes cardSlide {
-      from { opacity: 0; transform: translateY(50px) scale(0.9); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
-    
-    /* HEARTS FLOATING */
-    .hearts { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 100; }
-    .heart { position: absolute; font-size: 22px; animation: floatHearts 10s linear infinite; }
-    @keyframes floatHearts {
-      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { transform: translateY(-100px) rotate(1080deg); opacity: 0; }
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Ultimate Love Story</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:'Poppins',sans-serif;
+  height:100vh;
+  overflow:hidden;
+  background:black;
+  color:white;
+}
+
+/* INTRO */
+.intro{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:black;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+  animation:introFade 3s forwards;
+}
+
+.intro h1{
+  font-size:3rem;
+  letter-spacing:5px;
+  font-family:'Playfair Display',serif;
+  animation:glowText 2s infinite alternate;
+}
+
+@keyframes glowText{
+  from{text-shadow:0 0 20px #ff007f;}
+  to{text-shadow:0 0 50px #ff007f;}
+}
+
+@keyframes introFade{
+  0%{opacity:1;}
+  80%{opacity:1;}
+  100%{opacity:0;visibility:hidden;}
+}
+
+/* MAIN */
+.container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  height:100vh;
+}
+
+.cinema-frame{
+  width:90%;
+  max-width:850px;
+  height:80vh;
+  position:relative;
+  border-radius:25px;
+  overflow:hidden;
+  background:#000;
+  transition:0.2s;
+}
+
+/* BLUR BG */
+.bg-blur{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:blur(35px) brightness(0.4);
+  transform:scale(1.2);
+  z-index:1;
+}
+
+/* MAIN IMAGE */
+.main-img{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  max-height:95%;
+  max-width:65%;
+  object-fit:contain;
+  border-radius:15px;
+  z-index:2;
+  box-shadow:0 25px 70px rgba(255,0,100,0.6);
+}
+
+/* LYRICS */
+.lyrics{
+  position:absolute;
+  bottom:50px;
+  width:100%;
+  text-align:center;
+  font-size:1.7rem;
+  font-family:'Playfair Display',serif;
+  z-index:3;
+  padding:0 30px;
+  text-shadow:0 0 20px rgba(255,255,255,0.9);
+  transition:opacity 0.6s ease;
+}
+
+/* STOP BUTTON */
+button{
+  margin-top:20px;
+  padding:10px 25px;
+  border:none;
+  border-radius:25px;
+  cursor:pointer;
+  background:#ff004f;
+  color:white;
+  font-weight:600;
+}
+button:hover{transform:scale(1.1);}
+
+/* FALLING ROSES */
+.rose{
+  position:fixed;
+  top:-50px;
+  font-size:24px;
+  animation:fall linear infinite;
+}
+
+@keyframes fall{
+  0%{transform:translateY(-10vh) rotate(0deg);opacity:0;}
+  10%{opacity:1;}
+  100%{transform:translateY(110vh) rotate(360deg);opacity:0;}
+}
+</style>
 </head>
 <body>
-  <!-- FLOATING HEARTS -->
-  <div class="hearts" id="hearts"></div>
-  
-  <!-- HEADER -->
-  <div class="header">
-    <h1>💖 Our Beautiful Memories 💖</h1>
-    <p>Every moment with you is a treasure 🫶✨</p>
-  </div>
-  
-  <!-- 10+ STUNNING PHOTOS -->
-  <div class="photo-grid">
-    <div class="photo-card">
-      <img src="WhatsApp Image 2026-02-08 at 8.58.09 PM (1).jpeg" alt="Memory 1">
-      <div class="photo-overlay">
-        <h3>💕 Forever Moment</h3>
-      </div>
-    </div>
-    <div class="photo-card">
-      <img src="WhatsApp Image 2026-02-08 at 8.58.09 PM.jpeg" alt="Memory 2">
-      <div class="photo-overlay">
-        <h3>💕 Pure Love</h3>
-      </div>
-    </div>
-    <div class="photo-card">
-      <img src="WhatsApp Image 2026-02-08 at 8.58.10 PM (1).jpeg" alt="Memory 3">
-      <div class="photo-overlay">
-        <h3>💕 Always You</h3>
-      </div>
-    </div>
-    <div class="photo-card">
-      <img src="WhatsApp Image 2026-02-08 at 8.58.10 PM.jpeg" alt="Memory 4">
-      <div class="photo-overlay">
-        <h3>💕 My Heart</h3>
-      </div>
-    </div>
-    <div class="photo-card">
-      <img src="WhatsApp Image 2026-02-08 at 8.57.54 PM.jpeg" alt="Memory 5">
-      <div class="photo-overlay">
-        <h3>💕 Perfect</h3>
-      </div>
-    </div>
-    <div class="photo-card">
-      <img src="WhatsApp Image 2026-02-08 at 8.57.55 PM (1).jpeg" alt="Memory 6">
-      <div class="photo-overlay">
-        <h3>💕 Soulmate</h3>
-      </div>
-    </div>
-    <div class="photo-card">
-      <img src="WhatsApp Image 2026-02-08 at 8.57.55 PM.jpeg" alt="Memory 7">
-      <div class="photo-overlay">
-        <h3>💕 Eternity</h3>
-      </div>
-    </div>
-    <div class="photo-card">
-      <img src="WhatsApp Image 2026-02-08 at 8.57.56 PM.jpeg" alt="Memory 8">
-      <div class="photo-overlay">
-        <h3>💕 Magic</h3>
-      </div>
-    </div>
-    <div class="photo-card">
-      <img src="WhatsApp Image 2026-02-08 at 8.58.00 PM.jpeg" alt="Memory 9">
-      <div class="photo-overlay">
-        <h3>💕 Dream</h3>
-      </div>
-    </div>
-    <div class="photo-card">
-      <img src="WhatsApp Image 2026-02-08 at 8.58.05 PM.jpeg" alt="Memory 10">
-      <div class="photo-overlay">
-        <h3>💕 Forever</h3>
-      </div>
-    </div>
+
+<div class="intro">
+  <h1>Our Ultimate Love Story</h1>
+</div>
+
+<div class="container">
+  <div class="cinema-frame" id="frame">
+    <img id="bg" class="bg-blur">
+    <img id="main" class="main-img">
+    <div id="lyrics" class="lyrics"></div>
   </div>
 
-  <script>
-    // CONTINUOUS HEARTS
-    function createHeart() {
-      const heart = document.createElement('div');
-      heart.innerHTML = ['💖','💕','🩷','💗','✨'][Math.floor(Math.random()*5)];
-      heart.className = 'heart';
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.animationDuration = (Math.random() * 6 + 6) + 's';
-      document.getElementById('hearts').appendChild(heart);
-      setTimeout(() => heart.remove(), 12000);
+  <button onclick="stopMusic()">Stop Music</button>
+</div>
+
+<audio id="bgMusic">
+  <source src="Gale Lag Ja De Dana Dan-(Mr-Jat.in).mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+/* PLAY RANGE */
+const startTime = 167;
+const endTime   = 203;
+
+let music=document.getElementById("bgMusic");
+let frame=document.getElementById("frame");
+
+/* AUTO START AFTER INTRO */
+window.addEventListener("load",()=>{
+  setTimeout(()=>{
+    music.currentTime = startTime;
+    music.play();
+  },3000);
+});
+
+/* STOP FUNCTION */
+function stopMusic(){
+  music.pause();
+}
+
+/* AUTO STOP AT 3:23 */
+music.addEventListener("timeupdate",()=>{
+  if(music.currentTime >= endTime){
+    music.pause();
+  }
+});
+
+/* ===== BEAT REACTIVE GLOW ===== */
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+const analyser = audioContext.createAnalyser();
+const source = audioContext.createMediaElementSource(music);
+source.connect(analyser);
+analyser.connect(audioContext.destination);
+
+analyser.fftSize = 256;
+const dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+function animateBeat(){
+  analyser.getByteFrequencyData(dataArray);
+  let sum = dataArray.reduce((a,b)=>a+b);
+  let intensity = sum / dataArray.length;
+
+  frame.style.boxShadow = `0 0 ${intensity/2}px rgba(255,0,120,0.9)`;
+  requestAnimationFrame(animateBeat);
+}
+
+music.addEventListener("play",()=>{
+  audioContext.resume();
+  animateBeat();
+});
+
+/* IMAGES */
+let images=[
+'img1.jpeg','img2.jpeg','img3.jpeg','img4.jpeg',
+'img5.jpeg','img6.jpeg','img7.jpeg','img8.jpeg',
+'img9.jpeg','img10.jpeg','img11.jpeg','img12.jpeg',
+'img13.jpeg','img14.jpeg','img15.jpeg','img16.jpeg',
+'img17.jpeg','img18.jpeg','img19.jpeg'
+];
+
+let bg=document.getElementById("bg");
+let main=document.getElementById("main");
+let currentIndex=0;
+
+function showSlide(i){
+  bg.src=images[i];
+  main.src=images[i];
+}
+showSlide(currentIndex);
+
+setInterval(()=>{
+  currentIndex=(currentIndex+1)%images.length;
+  showSlide(currentIndex);
+},2000);
+
+/* LYRICS */
+let lyricsBox=document.getElementById("lyrics");
+
+let lyricsData=[
+{time:168, text:"Meri jazbon ki jo bhi halat hai"},
+{time:172, text:"Woh samjh lo na bin kahe"},
+{time:176, text:"In labon se kahon"},
+{time:180, text:"Jo armaan hai barso yeh honth chup rahe"},
+{time:186, text:"Thandi thandi agan hain"},
+{time:190, text:"Meethi meethi chubhan hai"},
+{time:195, text:"Judti judti hai tujhse aaaassss"},
+{time:199, text:"Bheki bheki hai raatein"},
+{time:201, text:"Mehki mehki hai saasnein"},
+{time:203, text:"Rehna rehna tu dil ke paassss"}
+];
+
+music.addEventListener("timeupdate",()=>{
+  let currentTime=Math.floor(music.currentTime);
+  lyricsData.forEach(line=>{
+    if(currentTime === line.time){
+      lyricsBox.style.opacity=0;
+      setTimeout(()=>{
+        lyricsBox.innerText=line.text;
+        lyricsBox.style.opacity=1;
+      },300);
     }
-    setInterval(createHeart, 400);
-  </script>
+  });
+});
+
+/* FALLING ROSES */
+for(let i=0;i<30;i++){
+  let rose=document.createElement("div");
+  rose.className="rose";
+  rose.innerHTML="🌹";
+  rose.style.left=Math.random()*100+"vw";
+  rose.style.animationDuration=(6+Math.random()*6)+"s";
+  document.body.appendChild(rose);
+}
+
+</script>
 </body>
 </html>
